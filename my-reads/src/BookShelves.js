@@ -1,11 +1,12 @@
 import React from 'react';
 import Shelf from './Shelf';
 
+const BookShelves = (props) => {
+  const { books, onUpdateBook } = props;
 
-const BookShelves = ({ books, onUpdateBook }) => {
-  const booksCurrentlyReading = books.filter(b => b.shelf === "currentlyReading")
-  const booksWantToRead = books.filter(b => b.shelf === "wantToRead")
-  const booksRead = books.filter(b => b.shelf === "read")
+  const booksCurrentlyReading = books.filter(b => b.shelf === 'currentlyReading');
+  const booksWantToRead = books.filter(b => b.shelf === 'wantToRead');
+  const booksRead = books.filter(b => b.shelf === 'read');
 
   return (
     <div className="list-books">
@@ -16,26 +17,26 @@ const BookShelves = ({ books, onUpdateBook }) => {
         <div>
           <Shelf
             books={booksCurrentlyReading}
-            selfTitle={"Currently Reading"}
-            currentShelf={"currentlyReading"}
+            shelfTitle={'Currently Reading'}
+            currentShelf={'currentlyReading'}
             onUpdateBook={onUpdateBook}
           />
           <Shelf
             books={booksWantToRead}
-            shelfTitle={"Want to Read"}
-            currentShelf={"wantToRead"}
+            shelfTitle={'Want to Read'}
+            currentShelf={'wantToRead'}
             onUpdateBook={onUpdateBook}
           />
           <Shelf
             books={booksRead}
-            shelfTitle={"Read"}
-            currentShelf={"read"}
+            shelfTitle={'Read'}
+            currentShelf={'read'}
             onUpdateBook={onUpdateBook}
           />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default BookShelves;

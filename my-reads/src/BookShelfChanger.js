@@ -3,11 +3,11 @@ import { React, useState} from 'react';
 const BookShelfChanger = (props) => {
   const { book, onUpdateBook } = props;
 
-  const [currentShelf, setCurrentShelf] = useState(book.shelf || "")
+  const [currentShelf, setCurrentShelf] = useState(book.shelf || '');
 
   const handleChange = (event) => {
     const newShelf = event.target.value;
-    const newShelfState = newShelf === "none" ? "" : newShelf;
+    const newShelfState = newShelf === 'none' ? '' : newShelf;
     setCurrentShelf(newShelfState);
     onUpdateBook(book, newShelf);
   };
@@ -25,6 +25,6 @@ const BookShelfChanger = (props) => {
       </select>
     </div>
   );
-}
+};
 
 export default BookShelfChanger;

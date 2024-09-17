@@ -1,20 +1,21 @@
-import React from 'react'
-import { useState, useEffect, useCallback } from 'react';
-import { Link } from "react-router-dom";
-import * as BooksAPI from "./BooksAPI.js";
-import Shelf from "./Shelf";
+import { React, useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI.js';
+import Shelf from './Shelf';
 
-const SearchBooks = ({ shelvedBooks, onUpdateBook}) => {
-  const [query, setQuery] = useState('')
-  const [queriedBooks, setQueriedBooks] = useState([])
+const SearchBooks = (props) => {
+  const { shelvedBooks, onUpdateBook } = props;
+
+  const [query, setQuery] = useState('');
+  const [queriedBooks, setQueriedBooks] = useState([]);
 
   const updateQuery = (v) => {
     setQuery(v);
-  }
+  };
 
   const orderBookByTitle = (a, b) =>  {
     return a.title.localeCompare(b.title);
-  }
+  };
 
   const updateQueriedBooks = useCallback((results) => {
     const resultIDs = results.map((result) => result.id);
@@ -34,7 +35,7 @@ const SearchBooks = ({ shelvedBooks, onUpdateBook}) => {
   }, [shelvedBooks]);
 
 
-   useEffect(() => {
+  useEffect(() => {
     const searchBooks = async () => {
       if (query) { // Only search if query is not empty
         try {
@@ -42,19 +43,19 @@ const SearchBooks = ({ shelvedBooks, onUpdateBook}) => {
           if (res && !res.error) {
             updateQueriedBooks(res);
           } else {
-            setQueriedBooks([])
+            setQueriedBooks([]);
           }
         } catch (error) {
-          console.error("Error searching books:", error);
+          console.error('Error searching books:', error);
           setQueriedBooks([]);
-          }
+        }
       } else {
         setQueriedBooks([]);
       }
-    }
+    };
 
     searchBooks();
-   }, [query, updateQueriedBooks]);
+  },[query, updateQueriedBooks]);
 
   return (
     <div className="search-books">
@@ -73,13 +74,13 @@ const SearchBooks = ({ shelvedBooks, onUpdateBook}) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-        {queriedBooks.length > 0 && (
-          <Shelf books={queriedBooks} onUpdateBook={onUpdateBook}/>
-        )}
+          {queriedBooks.length > 0 && (
+            <Shelf books={queriedBooks} onUpdateBook={onUpdateBook}/>
+          )}
         </ol>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SearchBooks;

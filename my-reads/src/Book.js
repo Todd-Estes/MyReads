@@ -1,13 +1,13 @@
 import React from 'react';
 import BookShelfChanger from './BookShelfChanger';
-import noImageIcon from "./icons/no-image.png";
+import noImageIcon from './icons/no-image.png';
 
 const Book = (props) => {
   const { book, onUpdateBook } = props;
   const { title, authors, imageLinks } = book;
- 
+
   const thumbnail = imageLinks ? imageLinks.thumbnail : noImageIcon;
-  const joinedAuthors = authors ? authors.join(', ') : "Unknown Author";
+  const joinedAuthors = authors ? authors.join(', ') : 'Unknown Author';
 
   return (
     <div className="book">
@@ -26,6 +26,6 @@ const Book = (props) => {
       <div className="book-authors">{joinedAuthors}</div>
     </div>
   );
-}
+};
 
 export default Book;

@@ -7,6 +7,7 @@ const Shelf = (props) => {
     shelfTitle,
     onUpdateBook
   } = props;
+
   return (
     <div className="bookshelf">
       {shelfTitle && (
@@ -26,6 +27,6 @@ const Shelf = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default Shelf;
