@@ -11,7 +11,7 @@ This React app allows users to to build and maintain a personal virtual library.
 
 
 ## Notes and Design Decisions
-1. I originally built this app out in a forked version of the Udacity starter repo. I wanted to build it out with create-react-app, so I copied most of the work I did there into this project. That's why there aren't too many commits, because I handled most of the debugging work there. Here's the link to the original forked repo: https://github.com/Todd-Estes/nd0191-c1-myreads
+1. I originally built this app out in a forked version of the Udacity starter repo. I wanted to build it out with create-react-app (which is now depricated 🤷🏻‍♂️), so I copied most of the work I did there into this project. That's why there aren't too many commits, because I handled most of the debugging work there. Here's the link to the original forked repo: https://github.com/Todd-Estes/nd0191-c1-myreads
 
 2. I wanted to use some custom eslint configurations for the first time in a project. I created a .eslintrc.js file with different plugins and rules. Some of the plugind and rules might be depricated, but it was good practice.
 
