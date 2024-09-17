@@ -18,19 +18,16 @@ const BookShelves = (props) => {
           <Shelf
             books={booksCurrentlyReading}
             shelfTitle={'Currently Reading'}
-            currentShelf={'currentlyReading'}
             onUpdateBook={onUpdateBook}
           />
           <Shelf
             books={booksWantToRead}
             shelfTitle={'Want to Read'}
-            currentShelf={'wantToRead'}
             onUpdateBook={onUpdateBook}
           />
           <Shelf
             books={booksRead}
             shelfTitle={'Read'}
-            currentShelf={'read'}
             onUpdateBook={onUpdateBook}
           />
         </div>
